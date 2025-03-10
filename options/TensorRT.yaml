@@ -1,0 +1,40 @@
+defaults:
+  trt_fp16_enable: false  # Enable FP16 precision
+  trt_int8_enable: false  # Enable INT8 precision
+  trt_int8_calibration_table_name: ""  # Path to INT8 calibration table
+  trt_int8_use_native_calibration_table: false  # Use TensorRT-native calibration table format
+  trt_dla_enable: false  # Enable DLA (Deep Learning Accelerator)
+  trt_dla_core: 0  # DLA core index
+  trt_engine_cache_enable: true  # Enable engine caching
+  trt_engine_cache_path: ""  # Path to engine cache directory
+  trt_engine_decryption_enable: false  # Enable engine decryption
+  trt_engine_decryption_lib_path: ""  # Path to decryption library
+  trt_engine_encryption_enable: false  # Enable engine encryption
+  trt_engine_encryption_lib_path: ""  # Path to encryption library
+  trt_force_sequential_engine_build: false  # Force sequential engine building
+  trt_context_memory_sharing_enable: true  # Enable memory sharing between contexts
+  trt_layer_norm_fp32_fallback: true  # Allow FP32 fallback for LayerNorm
+  trt_timing_cache_enable: false  # Enable TensorRT timing cache
+  trt_force_timing_cache: false  # Force use of timing cache
+  trt_detailed_build_log: false  # Enable detailed build logs
+  trt_build_heuristics_enable: true  # Enable build heuristics
+  trt_sparsity_enable: false  # Enable sparsity support
+  trt_builder_optimization_level: 3  # Optimization level (0-5)
+  trt_auxiliary_streams: 0  # Number of auxiliary streams for parallel execution
+  trt_tactic_sources: ""  # List of tactic sources to use
+  trt_extra_plugin_lib_paths: ""  # Path to additional TensorRT plugin libraries
+  trt_profile_min_shapes: ""  # Minimum shapes for dynamic input profiling
+  trt_profile_max_shapes: ""  # Maximum shapes for dynamic input profiling
+  trt_profile_opt_shapes: ""  # Optimal shapes for dynamic input profiling
+  trt_cuda_graph_enable: false  # Enable CUDA graph feature
+  trt_capturable_graph_enable: false  # Enable capturable CUDA graph feature
+  trt_layer_norm_fp32_fallback: true  # Allow FP32 fallback for LayerNorm
+
+timing_cache:
+  trt_timing_cache_enable: true  # Enable engine caching
+  trt_timing_cache_path : "./model_database/par/" # .timing
+  trt_force_timing_cache: true
+
+engine_cache:
+  trt_engine_cache_enable: true 
+  trt_engine_cache_path: "./model_database/par/trt_engines" # .engine
