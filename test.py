@@ -53,7 +53,7 @@ def load_model(onnx_model_path, provider='CPU', provider_options=None):
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        print("Usage: python script.py <path_to_model.onnx> [provider]")
+        print("Usage: python test.py <path_to_model.onnx> [provider]")
         sys.exit(1)
 
     # model_path = '../../../Scrivania/model_database/par/parnet.onnx'
