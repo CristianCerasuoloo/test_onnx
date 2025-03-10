@@ -37,7 +37,7 @@ timing_cache:
 
 engine_cache:
   trt_engine_cache_enable: true 
-  trt_engine_cache_path: "./model_database/par/trt_engines" # .engine
+  trt_engine_cache_path: "./model_database/par/trt_engines/" # .engine
 
 embed_engine:
   trt_engine_cache_enable: true
