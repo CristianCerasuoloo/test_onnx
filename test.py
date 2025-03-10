@@ -10,6 +10,7 @@ def load_yaml_options(provider, options_folder = "./options", key = "defaults"):
     
     if os.path.exists(options_path):
         with open(options_path, "r") as file:
+            print("Using key for YAML: ", key)
             return yaml.safe_load(file)[key]
     return {}  # Return an empty dictionary if no file exists
 
@@ -53,7 +54,7 @@ def load_model(onnx_model_path, provider='CPU', provider_options=None):
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        print("Usage: python test.py <path_to_model.onnx> [provider]")
+        print("Usage: python test.py <path_to_model.onnx> [provider] [key]")
         sys.exit(1)
 
     # model_path = '../../../Scrivania/model_database/par/parnet.onnx'
@@ -61,16 +62,11 @@ if __name__ == "__main__":
     
     model_path = sys.argv[1]
     provider = sys.argv[2] if len(sys.argv) > 2 else 'CPU'
-    
-    # provider_options = {
-    #     'CUDA': {"cudnn_conv_algo_search": "EXHAUSTIVE", "gpu_mem_limit": 2 * 1024 * 1024 * 1024},
-    #     'TensorRT': {"trt_max_workspace_size": 2 * 1024 * 1024 * 1024},
-    #     'CPU': {}
-    # }
-    
+    key = sys.argv[3] if len(sys.argv) > 3 else "defaults"
+
     # Load YAML of the provider if any
-    options = load_yaml_options(provider, key="timing_cache")
-    print(options)
+    options = load_yaml_options(provider, key=key)
+    print("Using options: \n", options)
 
     session = load_model(model_path, provider, options)
     
